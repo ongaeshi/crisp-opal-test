@@ -21,21 +21,13 @@
 
     <script src="https://cdn.opalrb.com/opal/current/opal.js" onload="Opal.load('opal')"></script>
     <script src="https://cdn.opalrb.com/opal/current/js.js" onload="Opal.require('js')"></script>
+    <script src="https://cdn.opalrb.com/opal/current/native.js" onload="Opal.require('native')"></script>
     <script src="https://cdn.opalrb.com/opal/current/opal-parser.js" onload="Opal.load('opal-parser')"></script>
     <script type="text/ruby" src="main.rb"></script>
 
 <script>
 // User-defined characters can be written here.
 characters = [];
-
-// Configure game options.
-options = {
-  isPlayingBgm: true,
-  isReplayEnabled: true,
-  // If you want to play a different BGM or SE,
-  // you can try changing the 'seed' value used to generate sounds.
-  seed: 60000,
-};
 
 // (Optional) Defining the types of variables is useful for
 // code completion and error detection.
