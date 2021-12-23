@@ -24,7 +24,7 @@ OPTIONS = {
 # 'update()' is called every frame (60 times per second).
 def update
   1.upto(5) do |e|
-    JS.box(20 * e, 20 * e, 15, 15)
+    box(20 * e, 20 * e, 15, 15)
   end
 end
 
