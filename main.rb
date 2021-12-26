@@ -22,9 +22,9 @@ options = {
 # characters = [];
 
 setup(
-  title,
-  description,
-  options
+  title: title,
+  description: description,
+  options: options
 )
 
 # 'update()' is called every frame (60 times per second).

@@ -1,8 +1,8 @@
-def setup(title, description, options)
+def setup(opts = {})
   win = Native(`window`)
-  win[:title] = title
-  win[:description] = description
-  win[:options] = options.to_n
+  win[:title] = opts[:title] if opts[:title]
+  win[:description] = opts[:description] if opts[:description]
+  win[:options] = opts[:options].to_n if opts[:options]
 end
 
 def rect(x, y, width, height)
