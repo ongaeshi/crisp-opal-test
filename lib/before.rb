@@ -1,7 +1,9 @@
 def setup(opts = {})
   win = Native(`window`)
-  win[:title] = opts[:title] if opts[:title]
-  win[:description] = opts[:description] if opts[:description]
+  unless opts[:debug]
+    win[:title] = opts[:title] if opts[:title]
+    win[:description] = opts[:description] if opts[:description]
+  end
   win[:options] = opts[:options].to_n if opts[:options]
 end
 

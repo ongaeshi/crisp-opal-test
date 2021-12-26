@@ -17,7 +17,9 @@ setup(
     # If you want to play a different BGM or SE,
     # you can try changing the 'seed' value used to generate sounds.
     seed: 1
-  }
+  },
+  # if "true", skip title mode.
+  # debug: true
 )
 
 # 'update()' is called every frame (60 times per second).
