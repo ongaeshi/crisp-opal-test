@@ -8,8 +8,24 @@ setup(
     ABCDEFGHIJKLMNOP
     !"#$%&'()@=~-=|{
   EOS
-  # User-defined characters can be written here.
-  # characters: [],
+  # Define pixel arts of characters.
+  # Each letter represents a pixel color.
+  # (l: black, r: red, g: green, b: blue
+  #  y: yellow, p: purple, c: cyan
+  #  L: light_black, R: light_red, G: light_green, B: light_blue
+  #  Y: light_yellow, P: light_purple, C: light_cyan)
+  # Characters are assigned from 'a'.
+  # 'char("a", 0, 0);' draws the character
+  # defined by the first element of the array.
+  characters: [
+    <<~EOS
+      lrgby
+      llpcL
+      lllRG
+      llllY
+      lllll
+    EOS
+  ],
   # Configure game options.
   options: {
     isPlayingBgm: false, # true
@@ -49,6 +65,7 @@ def update
   # text(string, x, y, options?)
   # text(string, p, options?)
   text("a", 10, 20)
+
   # Draw the user defined character.
   # char(string, x, y, options?)
   # char(string, p, options?)

@@ -4,6 +4,13 @@ def setup(opts = {})
     win[:title] = opts[:title] if opts[:title]
     win[:description] = opts[:description] if opts[:description]
   end
+
+  if opts[:characters]
+    win[:characters] = opts[:characters].map do |e|
+      "\n" + e
+    end
+  end
+
   win[:options] = opts[:options].to_n if opts[:options]
 end
 
