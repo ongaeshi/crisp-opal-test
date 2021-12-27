@@ -66,6 +66,7 @@ def update
   # text(string, p, options?)
   text("a", 10, 20)
 
+  color("black")
   # Draw the user defined character.
   # char(string, x, y, options?)
   # char(string, p, options?)
