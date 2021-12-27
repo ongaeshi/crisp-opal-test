@@ -30,3 +30,13 @@ end
 def arc(x, y, radius, thickness = 3, angle_from = 0, angle_to = Math::PI * 2)
   JS.call(:arc, x, y, radius, thickness, angle_from, angle_to)
 end
+
+# TODO: options https://github.com/abagames/crisp-game-lib/blob/0e5542c9cb1024592bb8ae014bd9f63180efcb30/src/letter.ts#L25
+def text(string, x, y)
+  JS.call(:text, string, x, y)
+end
+
+# TODO: options https://github.com/abagames/crisp-game-lib/blob/0e5542c9cb1024592bb8ae014bd9f63180efcb30/src/letter.ts#L38
+def char(string, x, y)
+  JS.call(:char, string, x, y)
+end

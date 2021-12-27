@@ -19,7 +19,7 @@ setup(
     seed: 1,
   },
   # if "true", skip title mode.
-  # debug: true
+  debug: true
 )
 
 # 'update()' is called every frame (60 times per second).
