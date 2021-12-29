@@ -16,11 +16,11 @@ end
 
 class Collision
   def initialize(js)
-    @js = js
+    @js = Native(js)
   end
 
   def is_colliding
-    Native(@js.JS[:isColliding])
+    @js[:isColliding]
   end
 end
 
