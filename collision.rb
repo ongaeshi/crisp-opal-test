@@ -9,11 +9,10 @@ def update
   #   char.[char]: boolean;
   # }
   # If the drawing box collides the purple rect...
-  # if (box(input.pos, 5, 5).isColliding.rect.purple) {
-  #   end();
-  # }
-
-  box(input.pos.x, input.pos.y, 5, 5)
+  if box(input.pos.x, input.pos.y, 5, 5).is_colliding.rect.purple
+    box(50, 50, 10, 10)
+    # end();
+  end
 
   if input.is_pressed
     box(15, 10, 5, 5)

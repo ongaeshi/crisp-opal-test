@@ -14,12 +14,22 @@ def setup(opts = {})
   win[:options] = opts[:options].to_n if opts[:options]
 end
 
+class Collision
+  def initialize(js)
+    @js = js
+  end
+
+  def is_colliding
+    Native(@js.JS[:isColliding])
+  end
+end
+
 def color(color_name)
   JS.call(:color, color_name)
 end
 
 def box(x, y, width, height)
-  JS.call(:box, x, y, width, height)
+  Collision.new(JS.call(:box, x, y, width, height))
 end
 
 def rect(x, y, width, height)
