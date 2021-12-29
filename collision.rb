@@ -13,6 +13,14 @@ def update
   #   end();
   # }
   if input.is_pressed
+    box(15, 10, 5, 5)
+  end
+
+  if input.is_just_pressed
     box(10, 10, 5, 5)
+  end
+
+  if input.is_just_released
+    box(20, 10, 5, 5)
   end
 end

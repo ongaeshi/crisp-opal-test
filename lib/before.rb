@@ -63,6 +63,14 @@ class Input
   def is_pressed
     @input[:isPressed]
   end
+
+  def is_just_pressed
+    @input[:isJustPressed]
+  end
+
+  def is_just_released
+    @input[:isJustReleased]
+  end
 end
 
 def input
