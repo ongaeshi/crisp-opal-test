@@ -28,8 +28,12 @@ def color(color_name)
   JS.call(:color, color_name)
 end
 
-def box(x, y, width, height)
-  Collision.new(JS.call(:box, x, y, width, height))
+def box(x, y, width, height = nil)
+  if x.is_a?(Vector)
+    Collision.new(JS.call(:box, x.to_n, y, width))
+  else
+    Collision.new(JS.call(:box, x, y, width, height))
+  end
 end
 
 def rect(x, y, width, height)
@@ -64,11 +68,11 @@ class Vector
   end
 
   def x
-    @js[:x]
+    @js.JS[:x]
   end
 
   def y
-    @js[:y]
+    @js.JS[:y]
   end
 
   def to_n
@@ -89,7 +93,7 @@ class Input
   end
 
   def pos
-    Vector.new(@input[:pos])
+    Vector.new(@input[:pos].to_n)
   end
 
   def is_pressed
