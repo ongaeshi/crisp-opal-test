@@ -12,5 +12,7 @@ def update
   # if (box(input.pos, 5, 5).isColliding.rect.purple) {
   #   end();
   # }
-  box(10, 10, 5, 5)
+  if input.is_pressed
+    box(10, 10, 5, 5)
+  end
 end

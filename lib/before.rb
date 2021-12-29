@@ -47,3 +47,24 @@ end
 def char(string, x, y)
   JS.call(:char, string, x, y)
 end
+
+class Input
+  @@self = nil
+
+  def self.instance
+    @@self = Input.new if @@self.nil?
+    @@self
+  end
+
+  def initialize
+    @input = Native(`window`)[:input]
+  end
+
+  def is_pressed
+    @input[:isPressed]
+  end
+end
+
+def input
+  Input.instance
+end
