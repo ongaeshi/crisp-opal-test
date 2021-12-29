@@ -48,6 +48,24 @@ def char(string, x, y)
   JS.call(:char, string, x, y)
 end
 
+class Vector
+  def initialize(js)
+    @js = js
+  end
+
+  def x
+    @js[:x]
+  end
+
+  def y
+    @js[:y]
+  end
+
+  def to_n
+    @js
+  end
+end
+
 class Input
   @@self = nil
 
@@ -58,6 +76,10 @@ class Input
 
   def initialize
     @input = Native(`window`)[:input]
+  end
+
+  def pos
+    Vector.new(@input[:pos])
   end
 
   def is_pressed
