@@ -75,4 +75,8 @@ def update
   text("ticks: #{ticks}", 1, 50)
   text("difficulty: #{difficulty}", 1, 60)
   text("score: #{score}", 1, 70)
+
+  add_score(1) if ticks % 50 == 0
+  add_score(2, 50, 50) if ticks % 40 == 0
+  add_score(3, input.pos) if ticks % 30 == 0
 end

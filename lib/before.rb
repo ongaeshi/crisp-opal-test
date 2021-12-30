@@ -127,7 +127,18 @@ def difficulty
   `difficulty`
 end
 
-# /Game score
+# Game score
 def score
   `score`
+end
+
+# Add up score
+def add_score(value, x = nil, y = nil)
+  if x.nil?
+    JS.call(:addScore, value)
+  elsif x.is_a?(Vector)
+    JS.call(:addScore, value, x.to_n)
+  else
+    JS.call(:addScore, value, x, y)
+  end
 end
