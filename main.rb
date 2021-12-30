@@ -72,5 +72,7 @@ def update
   # char(string, p, options?)
   char("a", 30, 40)
 
-  text(ticks.to_s, 30, 50)
+  text("ticks: #{ticks}", 1, 50)
+  text("difficulty: #{difficulty}", 1, 60)
+  text("score: #{score}", 1, 70)
 end

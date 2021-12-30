@@ -117,6 +117,17 @@ def play(type)
   JS.call(:play, type)
 end
 
+# Game ticks (60 ticks = 1 second)
 def ticks
   `ticks`
+end
+
+# Game difficulty (starts at 1, incremented by 1 per minute)
+def difficulty
+  `difficulty`
+end
+
+# /Game score
+def score
+  `score`
 end
