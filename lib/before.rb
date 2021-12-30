@@ -116,3 +116,7 @@ end
 def play(type)
   JS.call(:play, type)
 end
+
+def ticks
+  `ticks`
+end

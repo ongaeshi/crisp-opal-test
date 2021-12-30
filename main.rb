@@ -71,4 +71,6 @@ def update
   # char(string, x, y, options?)
   # char(string, p, options?)
   char("a", 30, 40)
+
+  text(ticks.to_s, 30, 50)
 end
