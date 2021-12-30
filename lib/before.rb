@@ -112,3 +112,7 @@ end
 def input
   Input.instance
 end
+
+def play(type)
+  JS.call(:play, type)
+end
