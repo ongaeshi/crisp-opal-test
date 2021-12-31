@@ -79,4 +79,6 @@ def update
   add_score(1) if ticks % 50 == 0
   add_score(2, 50, 50) if ticks % 40 == 0
   add_score(3, input.pos) if ticks % 30 == 0
+
+  particle(50, 50) if ticks % 40 == 0
 end
