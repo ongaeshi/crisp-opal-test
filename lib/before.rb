@@ -152,3 +152,28 @@ end
 def end_game
   JS.call(:end)
 end
+
+# Return random number.
+def rnd(low_or_high = nil, high = nil)
+  rnd_common(:rnd, low_or_high, high)
+end
+
+# Return random integer.
+def rndi(low_or_high = nil, high = nil)
+  rnd_common(:rndi, low_or_high, high)
+end
+
+# Return positive or negative random number.
+def rnds(low_or_high = nil, high = nil)
+  rnd_common(:rnds, low_or_high, high)
+end
+
+def rnd_common(symbol, low_or_high, high)
+  if low_or_high.nil?
+    JS.call(symbol)
+  elsif high.nil?
+    JS.call(symbol, low_or_high)
+  else
+    JS.call(symbol, low_or_high, high)
+  end
+end
