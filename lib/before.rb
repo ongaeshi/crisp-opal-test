@@ -146,3 +146,7 @@ end
 def particle(x, y, count = 16, speed = 1, angle_width = Math::PI * 2)
   JS.call(:particle, x, y, count, speed, angle_width)
 end
+
+def end_game
+  JS.call(:end)
+end
