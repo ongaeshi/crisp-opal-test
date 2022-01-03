@@ -48,7 +48,7 @@ def line(x1, y1, x2, y2, thickness = 3)
   JS.call(:line, x1, y1, x2, y2, thickness)
 end
 
-def arc(x, y, radius, thickness = 3, angle_from = 0, angle_to = Math::PI * 2)
+def arc(x, y, radius, thickness = 3, angle_from = 0, angle_to = PI * 2)
   JS.call(:arc, x, y, radius, thickness, angle_from, angle_to)
 end
 
@@ -272,7 +272,7 @@ def add_score(value, x = nil, y = nil)
 end
 
 # Add particles.
-def particle(x, y, count = 16, speed = 1, angle_width = Math::PI * 2)
+def particle(x, y, count = 16, speed = 1, angle_width = PI * 2)
   JS.call(:particle, x, y, count, speed, angle_width)
 end
 
@@ -309,4 +309,69 @@ end
 # Return Vector instance.
 def vec(x = nil, y = nil)
   Vector.new(x, y)
+end
+
+PI = Math::PI
+
+def abs(v)
+  JS.call(:abs, v)
+end
+
+def sin(v)
+  JS.call(:sin, v)
+end
+
+def cos(v)
+  JS.call(:cos, v)
+end
+
+def atan2(y, x)
+  JS.call(:atan2, y, x)
+end
+
+def pow(b, e)
+  JS.call(:pow, b, e)
+end
+
+def sqrt(v)
+  JS.call(:sqrt, v)
+end
+
+def floor(v)
+  JS.call(:floor, v)
+end
+
+def round(v)
+  JS.call(:round, v)
+end
+
+def ceil(v)
+  JS.call(:ceil, v)
+end
+
+def clamp(v, low = nil, high = nil)
+  if low
+    if high
+      JS.call(:clamp, v, low, high)
+    else
+      JS.call(:clamp, v, low)
+    end
+  else
+    JS.call(:clamp, v)
+  end
+end
+
+def wrap(v, low, high)
+  JS.call(:wrap, v, low, high)
+end
+
+def range(v)
+  JS.call(:range, v)
+end
+
+# function times<T>(count: number, func: (index: number) => T): T[];
+# function remove<T>(array: T[], func: (v: T, index?: number) => any): T[];
+
+def add_with_char_code(char, offset)
+  JS.call(:addWithCharCode, char, offset)
 end

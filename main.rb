@@ -35,8 +35,10 @@ setup(
     seed: 1,
   },
   # if "true", skip title mode.
-  debug: true
+  debug: true,
 )
+
+@char = nil
 
 # 'update()' is called every frame (60 times per second).
 def update
@@ -110,4 +112,13 @@ def update
 
   v.div(1.5)
   box(v, 5, 10)
+
+  if ticks == 0
+    @char = "A"
+  elsif ticks % 5 == 0
+    @char = add_with_char_code(@char, 1)
+    @char = "A" if @char == "{"
+  end
+
+  text(@char, 30, 30)
 end
