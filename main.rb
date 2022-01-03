@@ -39,6 +39,7 @@ setup(
 )
 
 @char = nil
+@i = nil
 
 # 'update()' is called every frame (60 times per second).
 def update
@@ -121,4 +122,14 @@ def update
   end
 
   text(@char, 30, 30)
+
+  box(vec(50, 50), vec(10, 5))
+  if ticks == 0
+    @i = 0
+  elsif ticks % 1 == 0
+    @i += 1
+    @i = 0 if @i >= 30
+  end
+  box(vec(50, 60), @i)
+  box(vec(50, 70), 5, 10)
 end

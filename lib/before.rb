@@ -28,12 +28,21 @@ def color(color_name)
   JS.call(:color, color_name)
 end
 
-def box(x, y, width, height = nil)
-  if x.is_a?(Vector)
-    Collision.new(JS.call(:box, x.to_n, y, width))
+def box(x, y, width = nil, height = nil)
+  x = x.to_n if x.is_a?(Vector)
+  y = y.to_n if y.is_a?(Vector)
+
+  collision = if width
+    if height
+      JS.call(:box, x, y, width, height)
   else
-    Collision.new(JS.call(:box, x, y, width, height))
+      JS.call(:box, x, y, width)
   end
+  else
+    JS.call(:box, x, y)
+  end
+
+  Collision.new(collision)
 end
 
 def rect(x, y, width, height)
