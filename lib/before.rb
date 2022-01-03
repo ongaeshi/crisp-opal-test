@@ -83,6 +83,126 @@ class Vector
     @js.JS[:y]
   end
 
+  def set(x = nil, y = nil)
+    if x
+      if y
+        @js.JS.set(x, y)
+      else
+        @js.JS.set(x)
+      end
+    else
+      @js.JS.set
+    end
+  end
+
+  def add(x = nil, y = nil)
+    if x
+      if y
+        @js.JS.add(x, y)
+      else
+        @js.JS.add(x)
+      end
+    else
+      @js.JS.add
+    end
+  end
+
+  def sub(x = nil, y = nil)
+    if x
+      if y
+        @js.JS.sub(x, y)
+      else
+        @js.JS.sub(x)
+      end
+    else
+      @js.JS.sub
+    end
+  end
+
+  def mul(v)
+    @js.JS.mul(v)
+  end
+
+  def div(v)
+    @js.JS.div(v)
+  end
+
+  def clamp(x_low, x_high, y_low, y_high)
+    @js.JS.clamp(x_low, x_high, y_low, y_high)
+  end
+
+  def wrap(x_low, x_high, y_low, y_high)
+    @js.JS.wrap(x_low, x_high, y_low, y_high)
+  end
+
+  def add_with_angle(angle, length)
+    @js.JS.addWithAngle(angle, length)
+  end
+
+  def swap_xy
+    @js.JS.swapXy
+  end
+
+  def normalize
+    @js.JS.normalize
+  end
+
+  def rotate(angle)
+    @js.JS.rotate(angle)
+  end
+
+  def angle_to(x = nil, y = nil)
+    if x
+      if y
+        @js.JS.angleTo(x, y)
+      else
+        @js.JS.angleTo(x)
+      end
+    else
+      @js.JS.angleTo
+    end
+  end
+
+  def distance_to(x = nil, y = nil)
+    if x
+      if y
+        @js.JS.distanceTo(x, y)
+      else
+        @js.JS.distanceTo(x)
+      end
+    else
+      @js.JS.distanceTo
+    end
+  end
+
+  def is_in_rect(x, y, width, height)
+    @js.JS.isInRect(x, y, width, height)
+  end
+
+  def equals(other)
+    @js.JS.equals(other)
+  end
+
+  def floor
+    @js.JS.floor
+  end
+
+  def round
+    @js.JS.round
+  end
+
+  def ceil
+    @js.JS.ceil
+  end
+
+  def length
+    @js.JS.length
+  end
+
+  def angle
+    @js.JS.angle
+  end
+
   def to_n
     @js
   end

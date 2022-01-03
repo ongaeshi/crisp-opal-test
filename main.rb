@@ -85,9 +85,29 @@ def update
   # end_game if input.is_just_pressed
 
   color("blue")
-  box(vec.x, vec.y, 10, 10)
+  box(vec, 10, 10)
   color("light_blue")
-  box(vec(10).x, vec(10).y, 10, 10)
+  box(vec(10), 10, 10)
   color("yellow")
-  box(vec(10, 10).x, vec(10, 10).y, 10, 10)
+  box(vec(10, 10), 10, 10)
+  color("light_yellow")
+  box(vec(0, 10), 10, 10)
+
+  color("blue")
+
+  v = vec(1, 2)
+  v.set(10, 30)
+  box(v, 5, 10)
+
+  v.add(5, 10)
+  box(v, 5, 10)
+
+  v.sub(3, 5)
+  box(v, 5, 10)
+
+  v.mul(2)
+  box(v, 5, 10)
+
+  v.div(1.5)
+  box(v, 5, 10)
 end
