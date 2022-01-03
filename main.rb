@@ -83,4 +83,11 @@ def update
   particle(rnd(50, 100), 20) if ticks % 40 == 0
 
   # end_game if input.is_just_pressed
+
+  color("blue")
+  box(vec.x, vec.y, 10, 10)
+  color("light_blue")
+  box(vec(10).x, vec(10).y, 10, 10)
+  color("yellow")
+  box(vec(10, 10).x, vec(10, 10).y, 10, 10)
 end

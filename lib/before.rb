@@ -63,8 +63,16 @@ def char(string, x, y)
 end
 
 class Vector
-  def initialize(js)
-    @js = js
+  def initialize(x = nil, y = nil)
+    @js = if x
+      if y
+        JS.call(:vec, x, y)
+      else
+        JS.call(:vec, x)
+      end
+    else
+      JS.call(:vec)
+    end
   end
 
   def x
@@ -176,4 +184,9 @@ def rnd_common(symbol, low_or_high, high)
   else
     JS.call(symbol, low_or_high, high)
   end
+end
+
+# Return Vector instance.
+def vec(x = nil, y = nil)
+  Vector.new(x, y)
 end
