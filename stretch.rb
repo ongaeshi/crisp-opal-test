@@ -81,7 +81,7 @@ def update
     # Add up the score.
     # By specifying the coordinates as the second argument,
     # the added score is displayed on the screen.
-    add_score(ceil(@cord.pin.distanceTo(next_pin)), next_pin)
+    add_score(ceil(@cord.pin.distance_to(next_pin)), next_pin)
     @cord.pin = next_pin
     @cord.length = CORD_LENGTH
   end
