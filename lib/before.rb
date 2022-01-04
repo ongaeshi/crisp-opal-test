@@ -214,6 +214,7 @@ class Vector
 
   def add_with_angle(angle, length)
     @js.JS.addWithAngle(angle, length)
+    self
   end
 
   def swap_xy
