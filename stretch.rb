@@ -87,8 +87,8 @@ def update
   end
   @next_pin_dist -= scr
   while @next_pin_dist < 0
-    #'rnd()' returns a random value.
-    @pins.push(vec(rnd(10, 90), -2 - @next_pin_dist));
+    # 'rnd()' returns a random value.
+    @pins.push(vec(rnd(10, 90), -2 - @next_pin_dist))
     @next_pin_dist += rnd(5, 15)
   end
 end

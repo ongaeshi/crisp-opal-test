@@ -141,6 +141,8 @@ end
 
 class Vector
   def initialize(x = nil, y = nil)
+    x = x.to_n if x.is_a?(Vector)
+
     @js = if x
       if y
         JS.call(:vec, x, y)
