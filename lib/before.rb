@@ -156,8 +156,16 @@ class Vector
     @js.JS[:x]
   end
 
+  def x=(v)
+    @js.JS[:x] = v
+  end
+
   def y
     @js.JS[:y]
+  end
+
+  def y=(v)
+    @js.JS[:y] = v
   end
 
   def set(x = nil, y = nil)
