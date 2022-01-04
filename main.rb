@@ -132,4 +132,7 @@ def update
   end
   box(vec(50, 60), @i)
   box(vec(50, 70), 5, 10)
+
+  color("red")
+  rect(vec(60, 50), 3)
 end

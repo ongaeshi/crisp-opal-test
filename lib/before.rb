@@ -28,6 +28,7 @@ def color(color_name)
   JS.call(:color, color_name)
 end
 
+# Draw box (center-aligned rect)
 def box(x, y, width = nil, height = nil)
   x = x.to_n if x.is_a?(Vector)
   y = y.to_n if y.is_a?(Vector)
@@ -35,9 +36,9 @@ def box(x, y, width = nil, height = nil)
   collision = if width
     if height
       JS.call(:box, x, y, width, height)
-  else
+    else
       JS.call(:box, x, y, width)
-  end
+    end
   else
     JS.call(:box, x, y)
   end
@@ -45,30 +46,97 @@ def box(x, y, width = nil, height = nil)
   Collision.new(collision)
 end
 
-def rect(x, y, width, height)
-  JS.call(:rect, x, y, width, height)
+# Draw rectangle
+def rect(x, y, width = nil, height = nil)
+  x = x.to_n if x.is_a?(Vector)
+
+  collision = if width
+    if height
+      JS.call(:rect, x, y, width, height)
+    else
+      JS.call(:rect, x, y, width)
+    end
+  else
+    JS.call(:rect, x, y)
+  end
+
+  Collision.new(collision)
 end
 
-def bar(x, y, length, thickness, rotate = 0.5, center_pos_ratio = 0.5)
-  JS.call(:bar, x, y, length, thickness, rotate, center_pos_ratio)
+# Draw bar (angled rect)
+def bar(x, y, length, thickness, rotate = nil, center_pos_ratio = nil)
+  x = x.to_n if x.is_a?(Vector)
+
+  collision = if rotate
+    if center_pos_ratio
+      JS.call(:bar, x, y, length, thickness, rotate, center_pos_ratio)
+    else
+      JS.call(:bar, x, y, length, thickness, rotate)
+    end
+  else
+    JS.call(:bar, x, y, length, thickness)
+  end
+
+  Collision.new(collision)
 end
 
-def line(x1, y1, x2, y2, thickness = 3)
-  JS.call(:line, x1, y1, x2, y2, thickness)
+# Draw line
+def line(x1, y1, x2 = nil, y2 = nil, thickness = nil)
+  x1 = x1.to_n if x1.is_a?(Vector)
+  y1 = y1.to_n if y1.is_a?(Vector)
+
+  collision = if x2
+    if y2
+      if thickness
+        JS.call(:line, x1, y1, x2, y2, thickness)
+      else
+        JS.call(:line, x1, y1, x2, y2)
+      end
+    else
+      JS.call(:line, x1, y1, x2)
+    end
+  else
+    JS.call(:line, x1, y1)
+  end
+
+  Collision.new(collision)
 end
 
-def arc(x, y, radius, thickness = 3, angle_from = 0, angle_to = PI * 2)
-  JS.call(:arc, x, y, radius, thickness, angle_from, angle_to)
+# Draw arc
+def arc(x, y, radius = nil, thickness = nil, angle_from = nil, angle_to = nil)
+  x = x.to_n if x.is_a?(Vector)
+
+  collision = if radius
+    if thickness
+      if angle_from
+        if angle_to
+          JS.call(:arc, x, y, radius, thickness, angle_from, angle_to)
+        else
+          JS.call(:arc, x, y, radius, thickness, angle_from)
+        end
+      else
+        JS.call(:arc, x, y, radius, thickness)
+      end
+    else
+      JS.call(:arc, x, y, radius)
+    end
+  else
+    JS.call(:arc, x, y)
+  end
+
+  Collision.new(collision)
 end
 
 # TODO: options https://github.com/abagames/crisp-game-lib/blob/0e5542c9cb1024592bb8ae014bd9f63180efcb30/src/letter.ts#L25
 def text(string, x, y)
-  JS.call(:text, string, x, y)
+  collision = JS.call(:text, string, x, y)
+  Collision.new(collision)
 end
 
 # TODO: options https://github.com/abagames/crisp-game-lib/blob/0e5542c9cb1024592bb8ae014bd9f63180efcb30/src/letter.ts#L38
 def char(string, x, y)
-  JS.call(:char, string, x, y)
+  collision = JS.call(:char, string, x, y)
+  Collision.new(collision)
 end
 
 class Vector
