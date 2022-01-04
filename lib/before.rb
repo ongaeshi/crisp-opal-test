@@ -256,7 +256,7 @@ class Vector
       if y
         @js.JS.distanceTo(x, y)
       else
-        @js.JS.distanceTo(x)
+        @js.JS.distanceTo(x.to_n)
       end
     else
       @js.JS.distanceTo
