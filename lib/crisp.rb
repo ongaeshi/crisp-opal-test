@@ -128,14 +128,28 @@ def arc(x, y, radius = nil, thickness = nil, angle_from = nil, angle_to = nil)
 end
 
 # TODO: options https://github.com/abagames/crisp-game-lib/blob/0e5542c9cb1024592bb8ae014bd9f63180efcb30/src/letter.ts#L25
-def text(string, x, y)
-  collision = JS.call(:text, string, x, y)
+def text(string, x, y = nil)
+  x = x.to_n if x.is_a?(Vector)
+
+  collision = if y
+    JS.call(:text, string, x, y)
+  else
+    JS.call(:text, string, x)
+  end
+
   Collision.new(collision)
 end
 
 # TODO: options https://github.com/abagames/crisp-game-lib/blob/0e5542c9cb1024592bb8ae014bd9f63180efcb30/src/letter.ts#L38
-def char(string, x, y)
-  collision = JS.call(:char, string, x, y)
+def char(string, x, y = nil)
+  x = x.to_n if x.is_a?(Vector)
+
+  collision = if y
+    JS.call(:char, string, x, y)
+  else
+    JS.call(:char, string, x)
+  end
+
   Collision.new(collision)
 end
 

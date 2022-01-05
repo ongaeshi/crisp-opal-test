@@ -16,6 +16,5 @@ setup(
 )
 
 def update
-  color("red")
-  box(20, 20, 15, 20)
+  char("a", input.pos)
 end
