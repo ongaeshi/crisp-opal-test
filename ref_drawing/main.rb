@@ -16,5 +16,5 @@ setup(
 )
 
 def update
-  char("a", input.pos)
+  char("a", input.pos.x, 95)
 end
