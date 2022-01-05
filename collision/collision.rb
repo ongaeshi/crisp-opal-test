@@ -10,9 +10,8 @@ def update
   # }
   # If the drawing box collides the purple rect...
   if box(input.pos, 5, 5).is_colliding.rect.purple
-    `console.log(input.pos)`
-    box(50, 50, 10, 10)
-    # end();
+    # box(50, 50, 10, 10)
+    end_game
   end
 
   if input.is_pressed

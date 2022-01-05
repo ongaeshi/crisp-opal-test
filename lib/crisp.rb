@@ -309,7 +309,8 @@ class Input
   end
 
   def pos
-    Vector.new(@input[:pos].to_n)
+    ip = @input[:pos]
+    Vector.new(ip[:x], ip[:y])
   end
 
   def is_pressed
