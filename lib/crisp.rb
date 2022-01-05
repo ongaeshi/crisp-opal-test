@@ -180,6 +180,7 @@ class Vector
     else
       @js.JS.set
     end
+    self
   end
 
   def add(x = nil, y = nil)
@@ -192,6 +193,7 @@ class Vector
     else
       @js.JS.add
     end
+    self
   end
 
   def sub(x = nil, y = nil)
@@ -204,22 +206,27 @@ class Vector
     else
       @js.JS.sub
     end
+    self
   end
 
   def mul(v)
     @js.JS.mul(v)
+    self
   end
 
   def div(v)
     @js.JS.div(v)
+    self
   end
 
   def clamp(x_low, x_high, y_low, y_high)
     @js.JS.clamp(x_low, x_high, y_low, y_high)
+    self
   end
 
   def wrap(x_low, x_high, y_low, y_high)
     @js.JS.wrap(x_low, x_high, y_low, y_high)
+    self
   end
 
   def add_with_angle(angle, length)
@@ -229,14 +236,17 @@ class Vector
 
   def swap_xy
     @js.JS.swapXy
+    self
   end
 
   def normalize
     @js.JS.normalize
+    self
   end
 
   def rotate(angle)
     @js.JS.rotate(angle)
+    self
   end
 
   def angle_to(x = nil, y = nil)
@@ -273,14 +283,17 @@ class Vector
 
   def floor
     @js.JS.floor
+    self
   end
 
   def round
     @js.JS.round
+    self
   end
 
   def ceil
     @js.JS.ceil
+    self
   end
 
   def length
