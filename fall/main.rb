@@ -43,9 +43,19 @@ class Falling
     @pos = vec(x, y)
   end
 
-  def update
+  def update(player_color)
     @pos.y += 1
-    char(@string, @pos)
+  
+    if char(@string, @pos).is_colliding.char.a
+      if player_color == "red" && @string == "b" ||
+        player_color == "black" && @string == "c"
+        add_score(1, @pos)
+        return true
+      else
+        end_game
+      end
+    end
+
     @pos.y > 102
   end
 end
@@ -59,30 +69,16 @@ def update
     @fallings = []
   end
 
-  color("black")
-
-  @fallings.push(Falling.new(rndi(2) == 1 ? "b" : "c", rnd(100), 0)) if ticks % 5 == 0
-  @fallings.delete_if(&:update)
-
-  if input.is_just_released && ticks != 0
+  if input.is_just_pressed
     @player_color = @player_color == "red" ? "black" : "red"
   end
 
   color(@player_color)
+  char("a", input.pos.x, 95)
 
-  collision = char("a", input.pos.x, 95)
-
-  if collision.is_colliding.char.b
-    if @player_color == "black"
-      end_game
-    else
-      add_score(1, input.pos)
-    end
-  elsif collision.is_colliding.char.c
-    if @player_color == "red"
-      end_game
-    else
-      add_score(1, input.pos)
-    end
+  color("black")
+  @fallings.push(Falling.new(rndi(2) == 1 ? "b" : "c", rnd(100), 0)) if ticks % 5 == 0
+  @fallings.delete_if do |e|
+    e.update(@player_color)
   end
 end
