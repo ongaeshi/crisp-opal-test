@@ -1,7 +1,7 @@
 setup(
   title: "FALL",
   description: <<~EOS,
-    [Release] 
+       [TAP] 
     Change color
   EOS
   characters: [
@@ -61,7 +61,7 @@ def update
 
   color("black")
 
-  @fallings.push(Falling.new(rndi(2) == 1 ? "b" : "c", rnd(100), 0)) if ticks % 10 == 0
+  @fallings.push(Falling.new(rndi(2) == 1 ? "b" : "c", rnd(100), 0)) if ticks % 5 == 0
   @fallings.delete_if(&:update)
 
   if input.is_just_released && ticks != 0
