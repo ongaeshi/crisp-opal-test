@@ -70,7 +70,19 @@ def update
 
   color(@player_color)
 
-  if char("a", input.pos.x, 95).is_colliding.char.c
-    end_game
+  collision = char("a", input.pos.x, 95)
+
+  if collision.is_colliding.char.b
+    if @player_color == "black"
+      end_game
+    else
+      add_score(1, input.pos)
+    end
+  elsif collision.is_colliding.char.c
+    if @player_color == "red"
+      end_game
+    else
+      add_score(1, input.pos)
+    end
   end
 end
