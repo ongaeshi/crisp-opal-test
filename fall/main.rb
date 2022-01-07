@@ -1,8 +1,8 @@
 setup(
   title: "FALL",
   description: <<~EOS,
-       [TAP] 
-    Change color
+    [SWIPE] Move
+    [TAP] Color
   EOS
   characters: [
     <<~EOS,
